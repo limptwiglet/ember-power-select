@@ -81,7 +81,7 @@ export default class Options extends Component<Args> {
         if (e.target === null) return;
         let optionItem = (e.target as Element).closest('[data-option-index]');
         if (optionItem === null) return;
-        e.preventDefault();
+        if (e.cancelable) e.preventDefault();
         if (this._hasMoved(e)) {
           this.touchMoveEvent = undefined;
           return;
